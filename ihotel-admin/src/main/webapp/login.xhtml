@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>Simple Login Form Responsive Widget Template :: w3layouts</title>
+	<h:outputStylesheet name="css/style.css" rel='stylesheet' type='text/css'/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="application/x-javascript">
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	</script>
+
+	<!--webfonts-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700' 
+	      rel='stylesheet' type='text/css'/>
+</h:head>
+
+<h:body>
+<!--/start-login-one-->
+<h1>iHotel Admin</h1>
+		<div class="login">	
+			<div class="ribbon-wrapper h2 ribbon-red">
+				<div class="ribbon-front">
+					<h2>User Login</h2>
+				</div>
+				<div class="ribbon-edge-topleft2"></div>
+				<div class="ribbon-edge-bottomleft"></div>
+			</div>
+			
+			<h:form>
+			    <h:outputText value="#{loginManagedBean.loginResult}" rendered="#{loginManagedBean.loginResult != null}" style="color:red" />
+			    <h:message for="userID" errorStyle="color:red"/><br/>
+			    <h:message for="password" errorStyle="color:red"/>
+				<ul>
+					<li>
+						<h:inputText id="userID"  styleClass="text" value="#{loginManagedBean.userId}" required="true" 
+						    requiredMessage="Please enter the user ID"/> 
+						<a href="#" class=" icon user"><h:graphicImage value="#{resource['images:user.png']}"/></a>
+<!-- 						<h:graphicImage value="#{resource['images:user.png']}" styleClass="icon"  /> -->
+					</li>
+					 <li>
+						<h:inputSecret id="password" value="#{loginManagedBean.password}" required="true"
+						    requiredMessage="Please enter password"/> 
+						<a href="#" class=" icon lock"><h:graphicImage value="#{resource['images:lock.png']}"/></a>
+<!-- 						<h:graphicImage value="#{resource['images:lock.png']}" styleClass="icon" /> -->
+					</li>
+				</ul>
+
+<!-- 			</h:form> -->
+			<div class="submit">
+				<h:commandButton action="#{loginManagedBean.login}" type="submit" value="Log in" />
+			</div>
+			</h:form>
+		</div>
+    
+    <!--start-copyright-->
+   		<div class="copy-right">
+				<p>Copyright &copy; 2015  All rights  Reserved | Template by &nbsp;<a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+	<!--//end-copyright-->
+</h:body>
+</html>
