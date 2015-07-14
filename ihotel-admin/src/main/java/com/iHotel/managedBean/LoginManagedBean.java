@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import com.iHotel.entity.AdminUser;
 import com.iHotel.service.UserService;
+import com.iHotel.service.UserServiceImpl;
 import com.iHotel.util.GeneralConstant;
 
 @ManagedBean
@@ -18,11 +19,11 @@ public class LoginManagedBean {
     private String password;
     private String loginResult;
     
-    @Inject
     UserService userService;
     
     public String login() throws Exception {
     	AdminUser adminUser = null;
+    	userService = new UserServiceImpl();
     	
     	adminUser = userService.login(userId, password);
     	

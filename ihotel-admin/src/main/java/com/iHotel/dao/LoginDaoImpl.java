@@ -6,6 +6,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
 
 import com.iHotel.entity.AdminUser;
@@ -13,11 +14,10 @@ import com.iHotel.util.DigestUtil;
 
 @Stateless
 public class LoginDaoImpl implements LoginDao {
-	@PersistenceUnit
-	private EntityManagerFactory entityManagerFactory;
 
 	public AdminUser login(String userId, String password) throws Exception {
-		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("hotelEM");
+		EntityManager entityManager = emFactory.createEntityManager();
 		List<AdminUser> userList = new ArrayList<AdminUser>();
 		password = DigestUtil.digest(password);
 		AdminUser user = null;
