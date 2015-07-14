@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ihotel.admin</groupId>
 	<artifactId>ihotel-admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<name>ihotel-admin</name>
 	<description>The admin application of ihotel</description>
@@ -12,14 +12,68 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.glassfish</groupId>
 			<artifactId>javax.faces</artifactId>
-			<version>2.1.29</version>
+			<version>2.2.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4-1201-jdbc41</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.10.Final</version>
+		</dependency>
+
+		<!-- For JTA Transaction Manager -->
+		<dependency>
+			<groupId>org.jboss.jbossts</groupId>
+			<artifactId>jbossjta</artifactId>
+			<version>4.16.4.Final</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.0.v20150612</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.eclipse.jetty</groupId>
+									<artifactId>jetty-runner</artifactId>
+									<version>9.3.0.v20150612</version>
+									<destFileName>jetty-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
 </project>
