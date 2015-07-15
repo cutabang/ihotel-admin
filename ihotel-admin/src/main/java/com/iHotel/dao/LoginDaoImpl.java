@@ -3,7 +3,7 @@ package com.iHotel.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.ejb.Stateless;
+//import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,7 +12,7 @@ import javax.persistence.PersistenceUnit;
 import com.iHotel.entity.AdminUser;
 import com.iHotel.util.DigestUtil;
 
-@Stateless
+//@Stateless
 public class LoginDaoImpl implements LoginDao {
 
 	public AdminUser login(String userId, String password) throws Exception {

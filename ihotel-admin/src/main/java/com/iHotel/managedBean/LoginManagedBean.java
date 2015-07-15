@@ -5,8 +5,6 @@ import java.util.ResourceBundle;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
-
 import com.iHotel.entity.AdminUser;
 import com.iHotel.service.UserService;
 import com.iHotel.service.UserServiceImpl;
