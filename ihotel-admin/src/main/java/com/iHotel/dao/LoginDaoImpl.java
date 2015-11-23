@@ -30,7 +30,7 @@ public class LoginDaoImpl implements LoginDao {
 		if (userList.size() == 1) {
 			user = userList.get(0);
 		} else if (userList.size() > 1){
-			throw new Exception("Found more than 1 user for username '" + userId + "'");
+			throw new Exception("Found more than 1 user for usernamesssss '" + userId + "'");
 		}
 		
 		return user;
